@@ -1,9 +1,3 @@
-// var atticus = ["Atticus", "2405", "47000", 3];
-// var jem = ["Jem", "62347", "63500", 4];
-// var boo = ["Boo", "11435", "54000", 3];
-// var scout = ["Scout", "6243", "74750", 5];
-
-
 var atticus = new Person("Atticus", "2405", "47000", 3);
 var jem = new Person("Jem", "62347", "63500", 4);
 var boo = new Person("Boo", "11435", "54000", 3);
@@ -48,23 +42,22 @@ function calculateBonus(employee) {
       break;
   }
 
-if(empNumber.length === 4) {
-  bonus += 5;
-}
-//We added the bonus > 0 to prevent the possiblity of negative bonuses
-if(salary > 65000 && bonus>0) {
-  bonus -= 1;
-}
+  if(empNumber.length === 4) {
+    bonus += 5;
+  }
+  //We added the bonus > 0 to prevent the possiblity of negative bonuses
+  if(salary > 65000 && bonus>0) {
+    bonus -= 1;
+  }
 
-if(bonus>13) {
-  bonus = 13;
-}
+  if(bonus>13) {
+    bonus = 13;
+  }
 
-var percentString = bonus.toString()+"%"
-var percentBonus = bonus/100;
-var totalCompensation = "$" + ((salary * percentBonus) + salary).toLocaleString()
-var bonusAmount = "$" + (Math.round(salary * percentBonus).toLocaleString())
+  var percentString = bonus.toString()+"%"
+  var percentBonus = bonus/100;
+  var totalCompensation = "$" + ((salary * percentBonus) + salary).toLocaleString()
+  var bonusAmount = "$" + (Math.round(salary * percentBonus).toLocaleString())
 
-return new Bonus(employee.name, percentString, totalCompensation, bonusAmount);
-// return result;
+  return new Bonus(employee.name, percentString, totalCompensation, bonusAmount);
 }
